@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #5147b2;
+  font-family: 'Lato', sans-serif;
+  color: #292d2c;
+}
+
+a {
+  color: #292d2c;
+}
+
+input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  outline: none;
+  border-radius: 2em;
+  padding: 1em 1.5em;
+  transition: all 0.3s ease;
+  font-style: italic;
+}
+input:focus {
+  box-shadow: 0 0 17px rgba(0, 0, 0, 0.4);
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background: #5147b2;
+}
+
+.search {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 70%;
+  padding: 0 0 10% 0;
+  text-align: center;
+  max-width: 30em;
+  transition: all 0.3s ease;
+}
+.search--compact {
+  padding: 0;
+}
+.search--compact .search__title,
+.search--compact .search__or,
+.search--compact .search__random {
+  display: none;
+}
+.search__input {
+  margin: 1em 0;
+  align-self: stretch;
+}
+.search__or {
+  font-style: italic;
+}
+.search__random {
+  padding: 1em 0;
+}
+
+.resultsbox {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 100%;
+  padding: 5% 0;
+  background: #292d2c;
+}
+.resultsbox--hidden {
+  visibility: hidden;
+}
+
+.result {
+  width: 80%;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0.5em 0;
+  background: #1f1f1f;
+  border-radius: 5px;
+}
+.result__link {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 2em;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+.result__link:hover {
+  background: #efefef;
+  color: #5147b2;
+}
+.result__title {
+  margin: 0 0 .2em 0;
+}
+
+/* SVG Wiki doodle */
+.svg-wrapper {
+  display: flex;
+  padding: 5% 0 0 0;
+  background: #5147b2;
+}
+
+#wiki-doodle {
+  height: 18em;
+  width: 18em;
+  display: flex;
+  align-self: center;
+  margin: auto;
+}
+
+#layer2 {
+  stroke-dasharray: 4000;
+  stroke-dashoffset: 4000;
+  -webkit-animation: dash 5s cubic-bezier(0.75, 0.01, 1, 0.1) forwards;
+          animation: dash 5s cubic-bezier(0.75, 0.01, 1, 0.1) forwards;
+}
+
+@-webkit-keyframes dash {
+  from {
+    stroke-dashoffset: 4000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 4000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+#svg-obj.compact {
+  display: none;
+}
