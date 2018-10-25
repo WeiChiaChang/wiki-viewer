@@ -25,12 +25,12 @@ const searchApi = (query) =>
 //   console.log('Hello Sagas!')
 // }
 
-function* watchAndLog() {
-  while (true) {
-    const action = yield take('*')
-    console.log(action)
-  }
-}
+// function* watchAndLog() {
+//   while (true) {
+//     const action = yield take('*')
+//     console.log(action)
+//   }
+// }
 
 function* fetchSearchResults({ query }) {
   try {
@@ -50,7 +50,7 @@ function* search() {
 export default function* rootSaga() {
   yield all([
     // helloSaga(),
-    watchAndLog(),
+    // watchAndLog(),
     search(),
   ])
 }

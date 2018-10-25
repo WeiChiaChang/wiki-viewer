@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { requestSearch } from '../actions/index';
+import React from 'react';
 
 const Search = ({ onSearch }) => (
   <input
@@ -34,7 +32,6 @@ const WikiResults = ({ results }) => (
 );
 
 const WikiViewer = ({ data, onSearch }) => {
-  // data === {"query":"","result":[]}
   const { result } = data;
   // console.log(result)
   const numResults = result.length;
@@ -67,40 +64,4 @@ const WikiViewer = ({ data, onSearch }) => {
   );
 };
 
-class ConnectedApp extends Component {
-  render() {
-    const { result } = this.props;
-    return (
-      <WikiViewer
-        data={result}
-        onSearch={(e) =>
-          this.props.requestSearch(e.target.value)
-        }
-      />
-    )
-  }
-}
-
-// query === {"query":"","result":[]}
-// const ConnectedApp = (query) => (
-//   <WikiViewer
-//     data={query}
-//     onSearch={(e) =>
-//       requestSearch(e.target.value)
-//     }
-//   />
-// );
-
-const mapStateToProps = state => ({
-  // query: state.query,
-  // result: state.result
-  result: state,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  requestSearch: (query) => dispatch(requestSearch(query))
-});
-
-const App = connect(mapStateToProps, mapDispatchToProps)(ConnectedApp);
-
-export default App;
+export default WikiViewer;
