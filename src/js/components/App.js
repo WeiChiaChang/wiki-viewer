@@ -60,8 +60,8 @@ const WikiViewer = ({ data, onSearch }) => {
           see a random Wikipedia article
         </a>
       </div>
-      { numResults > 0
-      && <WikiResults results={result}/>
+      { numResults > 0 && 
+        <WikiResults results={result}/>
       }
     </div>
   );
