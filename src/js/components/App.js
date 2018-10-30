@@ -33,7 +33,7 @@ const WikiResults = ({ results }) => (
 
 const WikiViewer = ({ data, onSearch }) => {
   const { result } = data;
-  // console.log(result)
+  console.log(result)
   const numResults = result.length;
   const searchClassName = numResults
     ? 'search search--compact'

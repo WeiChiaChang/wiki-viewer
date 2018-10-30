@@ -6,6 +6,8 @@ import _  from 'lodash';
 import fetchJsonp from 'fetch-jsonp';
 import WIKI_API from '../utils/api';
 
+const WAIT_TIME = 1000;
+
 // 🐹 Helpers
 const transformSearchResults = (results) => 
   _.zipWith(
@@ -35,8 +37,9 @@ const searchApi = (query) =>
 function* fetchSearchResults({ query }) {
   try {
     // 🙌 debounce
-    yield call(delay, 100)
+    yield call(delay, WAIT_TIME)
     const results = yield call(searchApi, query);
+    // put === dispatch "receiveResults" action
     yield put(receiveResults(results))
   } catch (err) {
     console.error(err)
